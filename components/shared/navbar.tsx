@@ -16,9 +16,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="hidden max-md:block">
+      {/* <div className="hidden max-md:block">
         <NavMobile />
-      </div>
+      </div> */}
     </div>
   );
 };
