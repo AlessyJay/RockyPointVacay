@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import { Star } from "lucide-react";
 
 export const InfiniteMovingCards = ({
   items,
@@ -14,6 +15,7 @@ export const InfiniteMovingCards = ({
     quote: string;
     name: string;
     title: string;
+    star?: number;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -70,6 +72,13 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
+  const renderStars = (count: number | undefined) => {
+    if (!count) return null;
+    return Array.from({ length: count }, (_, index) => (
+      <Star key={index} className="text-yellow-500" />
+    ));
+  };
   return (
     <div
       ref={containerRef}
@@ -111,6 +120,9 @@ export const InfiniteMovingCards = ({
                   </span>
                   <span className="text-sm font-normal leading-[1.6] text-gray-400">
                     {item.title}
+                  </span>
+                  <span className="text-sm font-normal leading-[1.6] text-yellow-500">
+                    <div className="flex">{renderStars(item.star)}</div>
                   </span>
                 </span>
               </div>
