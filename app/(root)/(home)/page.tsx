@@ -1,6 +1,7 @@
 import About from "@/components/shared/About";
 import Details from "@/components/shared/Details";
 import Rooms from "@/components/shared/Rooms";
+import Testimonials from "@/components/shared/testimonials";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React from "react";
@@ -42,6 +43,9 @@ const Home = () => {
           className="size-[350px] object-contain"
         />
         <About />
+
+        {/* Testimonials section */}
+        <Testimonials />
 
         {/* Room section */}
         <Rooms />
