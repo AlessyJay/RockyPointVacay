@@ -13,7 +13,7 @@ const Home = () => {
     <main className="relative overflow-hidden p-10">
       <div className="mt-16 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center xl:mt-36 xl:h-screen">
-          <h1 className="mb-5 text-center text-7xl xl:w-3/4 xl:text-8xl">
+          <h1 className="mb-5 text-center max-sm:text-7xl md:text-7xl xl:w-3/4 xl:text-8xl">
             Welcome to Puerto Peñasco
           </h1>
 
@@ -34,9 +34,7 @@ const Home = () => {
           />
         </div>
 
-        <h1 className="rounded-md p-3 text-2xl font-semibold md:text-3xl">
-          Activities
-        </h1>
+        <h1 className="rounded-md p-3 text-2xl font-semibold">Activities</h1>
 
         <Details />
 
