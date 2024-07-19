@@ -1,6 +1,5 @@
 import { Palmtree } from "lucide-react";
 import React from "react";
-import NavMobile from "./NavMobile";
 
 const Navbar = () => {
   return (
