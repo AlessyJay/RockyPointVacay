@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@edgestore/react": "^0.2.0",
+    "@edgestore/server": "^0.2.0",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -16,6 +18,14 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.1",
+    "@tiptap/extension-list-item": "^2.5.4",
+    "@tiptap/extension-ordered-list": "^2.5.4",
+    "@tiptap/extension-placeholder": "^2.5.4",
+    "@tiptap/extension-underline": "^2.5.4",
+    "@tiptap/pm": "^2.5.4",
+    "@tiptap/react": "^2.5.4",
+    "@tiptap/starter-kit": "^2.5.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "eslint-config-prettier": "^9.1.0",
@@ -31,7 +41,9 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.52.1",
+    "react-select": "^5.8.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"

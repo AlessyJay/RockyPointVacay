@@ -6,11 +6,21 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const generateRandomId = (): string => {
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let id = "";
+  for (let i = 0; i < 5; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    id += characters[randomIndex];
+  }
+  return id;
+};
+
 export const CreateRoomSchema = z.object({
   id: z.string(),
   title: z.string(),
   pictures: z.string(),
-  description: z.string().min(20),
+  description: z.string().optional(),
   capacity: z.string(),
   location: z.string(),
   country: z.string(),
@@ -18,7 +28,7 @@ export const CreateRoomSchema = z.object({
   bedroom: z.string(),
   bed: z.string(),
   bath: z.string(),
-  price: z.number(),
+  price: z.string(),
   freeWifi: z.boolean(),
   parking: z.boolean(),
   gym: z.boolean(),

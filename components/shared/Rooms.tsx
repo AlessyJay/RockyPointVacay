@@ -63,7 +63,7 @@ const Rooms = () => {
                     <h3 className="text-xl font-semibold">{room.title}</h3>
                     <div className="flex items-center gap-1 text-sm text-muted-foreground">
                       <MapPinIcon className="size-4" />
-                      <span>{room.location}</span>
+                      <span className="line-clamp-1">{room.location}</span>
                     </div>
                   </div>
                   <p className="mb-4 text-muted-foreground">
@@ -130,6 +130,7 @@ const Rooms = () => {
                                   width={60}
                                   height={60}
                                   className="rounded-lg"
+                                  priority
                                 />
                               </Link>
                             ))}

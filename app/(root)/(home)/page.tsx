@@ -31,6 +31,7 @@ const Home = () => {
             width={500}
             height={500}
             className="mb-10 mt-16 size-[300px] overflow-hidden rounded-2xl border-4 border-primary md:size-[30rem] xl:size-[50em]"
+            priority
           />
         </div>
 
@@ -44,7 +45,7 @@ const Home = () => {
           alt="draw line"
           width={350}
           height={350}
-          className="size-[350px] object-contain"
+          className="size-auto object-cover"
         />
         <About />
 
