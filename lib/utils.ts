@@ -24,7 +24,7 @@ export const CreateRoomSchema = z.object({
   capacity: z.string(),
   location: z.string(),
   country: z.string(),
-  catagory: z.string(),
+  category: z.string(),
   bedroom: z.string(),
   bed: z.string(),
   bath: z.string(),

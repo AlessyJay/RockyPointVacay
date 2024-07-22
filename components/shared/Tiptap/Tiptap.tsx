@@ -19,6 +19,8 @@ const Tiptap = ({ onChange, content }: any) => {
       },
     },
 
+    immediatelyRender: false,
+
     onUpdate: ({ editor }) => {
       handleChange(editor.getHTML());
     },

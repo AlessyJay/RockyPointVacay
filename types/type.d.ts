@@ -4,8 +4,9 @@ export interface createRoomsType {
   picture: string;
   description?: string;
   capacity?: string;
-  location: string;
+  location?: string;
   country: string;
+  category: string;
   bedroom?: string;
   bed?: string;
   bath?: string;
