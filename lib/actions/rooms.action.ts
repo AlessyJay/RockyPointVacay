@@ -28,7 +28,7 @@ export const createRooms = async ({
   try {
     connectToDB();
 
-    await Room.create({
+    const Rooms = await Room.create({
       id,
       title,
       picture,
@@ -49,6 +49,7 @@ export const createRooms = async ({
     });
 
     revalidatePath(path);
+    return Rooms;
   } catch (error) {
     console.log(error);
   }

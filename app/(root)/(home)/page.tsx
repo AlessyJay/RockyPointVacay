@@ -1,8 +1,8 @@
 import About from "@/components/shared/About";
 import Details from "@/components/shared/Details";
-import Footer from "@/components/shared/Footer";
 import Rooms from "@/components/shared/Rooms";
 import Testimonials from "@/components/shared/testimonials";
+import UploadFileBtn from "@/components/shared/UploadFileBtn";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/ui/infiniteScrollCards";
 import Image from "next/image";
@@ -89,7 +89,7 @@ const Home = () => {
         {/* Room section */}
         <Rooms />
 
-        <Footer />
+        <UploadFileBtn />
       </div>
     </main>
   );
