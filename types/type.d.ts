@@ -24,3 +24,7 @@ export interface createCategory {
   roomId: string;
   title: string;
 }
+
+export interface ContentItem {
+  [key: string]: string | number;
+}
