@@ -57,14 +57,18 @@ export const SelectForm = <
   placeholder,
   valueKey,
   displayKey,
+  disabled,
+  onChange,
 }: {
   control: Control<z.infer<T>>;
   formName: Path<z.infer<T>>;
   label: string;
   content: ItemTypes[];
   placeholder?: string;
+  disabled?: any;
   valueKey: keyof ItemTypes;
   displayKey: keyof ItemTypes;
+  onChange?: (value: any) => void;
 }) => {
   return (
     <FormField
@@ -74,7 +78,16 @@ export const SelectForm = <
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Select onValueChange={field.onChange} value={field.value}>
+            <Select
+              onValueChange={(value) => {
+                field.onChange(value);
+                if (onChange) {
+                  onChange(value);
+                }
+              }}
+              value={field.value}
+              disabled={disabled}
+            >
               <SelectTrigger>
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
@@ -133,17 +146,21 @@ export const CheckboxForm = <T extends z.ZodType<any, any>>({
   control: Control<z.infer<T>>;
   formName: Path<z.infer<T>>;
   label: string;
-  placeholder?: string;
+  placeholder: string;
 }) => {
   return (
     <FormField
       control={control}
       name={formName}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className="flex flex-col">
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Checkbox />
+            <Checkbox
+              checked={field.value ?? false}
+              onCheckedChange={field.onChange}
+              {...field}
+            />
           </FormControl>
         </FormItem>
       )}

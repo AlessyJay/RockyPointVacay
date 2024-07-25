@@ -85,3 +85,10 @@ export const removeKeysFromQuery = ({
     { skipNull: true },
   );
 };
+
+export const Category = [
+  { id: 1, name: "Honeymoon Suite", vault: "honeymoon" },
+  { id: 2, name: "Deluxe Suite", vault: "deluxe" },
+  { id: 3, name: "Family Suite", vault: "family" },
+  { id: 4, name: "Standard Suite", vault: "standard" },
+];

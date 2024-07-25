@@ -1,21 +1,28 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CreateRoomSchema } from "@/lib/utils";
+import { CreateRoomSchema, Category } from "@/lib/utils";
+import { useSearchParams } from "next/navigation";
 import { z } from "zod";
 import {
+  CheckboxForm,
   InputForm,
   SelectForm,
   TextAreaForm,
 } from "@/components/shared/InstantForm";
 
 const page = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [countries, setCountries] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("country");
+
   const form = useForm<z.infer<typeof CreateRoomSchema>>({
     resolver: zodResolver(CreateRoomSchema),
     defaultValues: {
@@ -44,12 +51,18 @@ const page = () => {
     console.log(values);
   };
 
-  const Category = [
-    { id: 1, name: "Honeymoon Suite", vault: "honeymoon" },
-    { id: 2, name: "Deluxe Suite", vault: "deluxe" },
-    { id: 3, name: "Family Suite", vault: "family" },
-    { id: 4, name: "Standard Suite", vault: "standard" },
-  ];
+  useEffect(() => {
+    const fetchCountries = async () => {
+      const res = await fetch("/api/country");
+      const data = await res.json();
+      setCountries(data);
+    };
+
+    const debouncing = setTimeout(() => {}, 800);
+
+    fetchCountries();
+  }, []);
+
   return (
     <div className="mx-auto w-full max-w-4xl p-6 sm:p-8 md:p-10">
       <div className="space-y-6">
@@ -125,12 +138,64 @@ const page = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-2">
+                    <SelectForm
+                      control={form.control}
+                      formName="country"
+                      label="Country"
+                      content={countries}
+                      placeholder="Select Country"
+                      valueKey="id"
+                      displayKey="name"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <SelectForm
+                      control={form.control}
+                      formName="location"
+                      label="Location"
+                      content={Category}
+                      placeholder="Select Location"
+                      valueKey="id"
+                      displayKey="name"
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="space-y-2">
                     <InputForm
                       control={form.control}
                       formName="price"
                       label="Price"
                       placeholder="Price"
                     />
+                  </div>
+                  <div className="flex items-center space-y-2">
+                    <div className="grid w-full grid-cols-4">
+                      <CheckboxForm
+                        control={form.control}
+                        formName="freeWifi"
+                        label="Free Wifi"
+                        placeholder="Free Wifi"
+                      />
+                      <CheckboxForm
+                        control={form.control}
+                        formName="parking"
+                        label="Parking"
+                        placeholder="Parking"
+                      />
+                      <CheckboxForm
+                        control={form.control}
+                        formName="gym"
+                        label="Gym"
+                        placeholder="Gym"
+                      />
+                      <CheckboxForm
+                        control={form.control}
+                        formName="pool"
+                        label="Pool"
+                        placeholder="Pool"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-2">
