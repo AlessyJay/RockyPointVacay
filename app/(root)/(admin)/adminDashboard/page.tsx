@@ -9,14 +9,9 @@ import {
 } from "@/components/ui/card";
 import {
   BathIcon,
-  CogIcon,
   FilePenIcon,
   Home,
-  MenuIcon,
   PlusIcon,
-  SparklesIcon,
-  Dumbbell,
-  Waves,
   TrashIcon,
   TvIcon,
   WifiIcon,
