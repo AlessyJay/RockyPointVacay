@@ -74,12 +74,12 @@ export const rooms = [
     bookingIcon: [
       {
         id: "1",
-        path: "/images/Airbnb.png",
+        path: "https://i.ibb.co/VjcSj8p/airbnb-1024x1024.png",
         link: "https://www.airbnb.com/rooms/27932429?source_impression_id=p3_1721170071_P3cZY63xxQjF2f9y",
       },
       {
         id: "2",
-        path: "/images/vrbo.png",
+        path: "https://play-lh.googleusercontent.com/kMaMdsJ7pmxKdfK5u0SF4z4NpBbcAgjgCw_0VAcmlnjhN9810kGuNcrnAMG8U_b_U_w",
         link: "https://www.vrbo.com/1428754?unitId=1987266",
       },
     ],

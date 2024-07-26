@@ -1,3 +1,5 @@
+"use client";
+
 import About from "@/components/shared/About";
 import Details from "@/components/shared/Details";
 import Rooms from "@/components/shared/Rooms";
@@ -20,7 +22,15 @@ const Home = () => {
             Luxury condos in the beautiful Bella Sirena & Princesa Resorts
           </p>
 
-          <Button className="relative z-10 text-lg font-semibold max-sm:w-1/2 xl:mb-24 xl:h-[2em] xl:w-1/2 xl:text-3xl">
+          <Button
+            className="relative z-10 text-lg font-semibold max-sm:w-1/2 xl:mb-24 xl:h-[2em] xl:w-1/2 xl:text-3xl"
+            onClick={() => {
+              const roomSection = document.getElementById("roomSection");
+              if (roomSection) {
+                roomSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
             Let&apos;s get started!
           </Button>
 
@@ -87,7 +97,9 @@ const Home = () => {
         />
 
         {/* Room section */}
-        <Rooms />
+        <div id="roomSection">
+          <Rooms />
+        </div>
       </div>
     </main>
   );
