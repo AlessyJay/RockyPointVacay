@@ -18,7 +18,7 @@ const About = () => {
             <div className="space-y-8">
               <div className="flex items-center space-x-4">
                 <Image
-                  src="https://i.ibb.co/pvkTx69/penasco.jpg"
+                  src="https://i.ibb.co/nCH9ZN3/beach.png"
                   alt="beach photo"
                   width={120}
                   height={120}
@@ -35,7 +35,7 @@ const About = () => {
               <hr className="border-gray-300" />
               <div className="flex items-center space-x-4">
                 <Image
-                  src="/images/beach.png"
+                  src="https://i.ibb.co/Z1w7SY3/Puerto-Peasco.png"
                   alt="beach photo"
                   width={120}
                   height={120}

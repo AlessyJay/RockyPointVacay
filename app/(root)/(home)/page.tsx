@@ -46,6 +46,7 @@ const Home = () => {
           height={350}
           className="size-auto object-cover"
         />
+
         <About />
 
         {/* Testimonials section */}
