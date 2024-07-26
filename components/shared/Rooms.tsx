@@ -30,7 +30,7 @@ const Rooms = () => {
         </h1>
 
         <Image
-          src="/images/backpackers-trans.png"
+          src="https://i.ibb.co/SsrH1dm/backpackers-trans.png"
           alt="backpackers"
           width={500}
           height={500}
@@ -46,7 +46,7 @@ const Rooms = () => {
                   prefetch={false}
                 >
                   <Image
-                    src={room.picture}
+                    src={room.picture[0]}
                     width={600}
                     height={400}
                     alt="Accommodation"

@@ -2,7 +2,6 @@ import About from "@/components/shared/About";
 import Details from "@/components/shared/Details";
 import Rooms from "@/components/shared/Rooms";
 import Testimonials from "@/components/shared/testimonials";
-import UploadFileBtn from "@/components/shared/UploadFileBtn";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/ui/infiniteScrollCards";
 import Image from "next/image";
@@ -13,20 +12,20 @@ const Home = () => {
     <main className="relative overflow-hidden p-10">
       <div className="mt-16 flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center xl:mt-36 xl:h-screen">
-          <h1 className="mb-5 text-center max-sm:text-7xl md:text-7xl xl:w-3/4 xl:text-8xl">
+          <h1 className="relative z-10 mb-5 text-center max-sm:text-7xl md:text-7xl xl:w-3/4 xl:text-8xl">
             Welcome to Puerto Peñasco
           </h1>
 
-          <p className="my-8 text-center text-xl md:text-2xl xl:text-3xl">
+          <p className="relative z-10 my-8 text-center text-xl md:text-2xl xl:text-3xl">
             Luxury condos in the beautiful Bella Sirena & Princesa Resorts
           </p>
 
-          <Button className="text-lg font-semibold max-sm:w-1/2 xl:mb-24 xl:h-[2em] xl:w-1/2 xl:text-3xl">
+          <Button className="relative z-10 text-lg font-semibold max-sm:w-1/2 xl:mb-24 xl:h-[2em] xl:w-1/2 xl:text-3xl">
             Let&apos;s get started!
           </Button>
 
           <Image
-            src="/images/penasco.jpg"
+            src="https://i.ibb.co/pvkTx69/penasco.jpg"
             alt="image"
             width={500}
             height={500}
@@ -41,7 +40,7 @@ const Home = () => {
 
         {/* About section */}
         <Image
-          src="/images/Drawline.png"
+          src="https://i.ibb.co/BsxtgDP/Drawline.png"
           alt="draw line"
           width={350}
           height={350}
@@ -88,8 +87,6 @@ const Home = () => {
 
         {/* Room section */}
         <Rooms />
-
-        <UploadFileBtn />
       </div>
     </main>
   );

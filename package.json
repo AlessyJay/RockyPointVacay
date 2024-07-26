@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@edgestore/react": "^0.2.0",
-    "@edgestore/server": "^0.2.0",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -28,6 +27,7 @@
     "@tiptap/starter-kit": "^2.5.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.1.7",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
