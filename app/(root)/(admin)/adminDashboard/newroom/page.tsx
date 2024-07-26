@@ -8,7 +8,6 @@ import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CreateRoomSchema, Category } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
 import { z } from "zod";
 import {
   CheckboxForm,
@@ -19,9 +18,6 @@ import {
 
 const page = () => {
   const [countries, setCountries] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const searchParams = useSearchParams();
-  const search = searchParams.get("country");
 
   const form = useForm<z.infer<typeof CreateRoomSchema>>({
     resolver: zodResolver(CreateRoomSchema),
@@ -57,8 +53,6 @@ const page = () => {
       const data = await res.json();
       setCountries(data);
     };
-
-    const debouncing = setTimeout(() => {}, 800);
 
     fetchCountries();
   }, []);
