@@ -1,108 +1,199 @@
 "use client";
 
-import About from "@/components/shared/About";
-import Details from "@/components/shared/Details";
-import Rooms from "@/components/shared/Rooms";
-import Testimonials from "@/components/shared/testimonials";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { InfiniteMovingCards } from "@/components/ui/infiniteScrollCards";
+import { Palmtree, Waves, Sun, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { AboutSection } from "@/components/shared/About";
 
-const Home = () => {
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
   return (
-    <main className="relative overflow-hidden p-10">
-      <div className="mt-16 flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center justify-center xl:mt-36 xl:h-screen">
-          <h1 className="relative z-10 mb-5 text-center max-sm:text-7xl md:text-7xl xl:w-3/4 xl:text-8xl">
-            Welcome to Puerto Peñasco
-          </h1>
+    <motion.div
+      className="rounded-lg bg-gray-800 p-6 transition-shadow hover:shadow-lg"
+      whileHover={{ y: -5 }}
+    >
+      <div className="mb-4 text-teal-400">{icon}</div>
+      <h3 className="mb-2 text-xl font-semibold text-white">{title}</h3>
+      <p className="text-gray-400">{description}</p>
+    </motion.div>
+  );
+}
 
-          <p className="relative z-10 my-8 text-center text-xl md:text-2xl xl:text-3xl">
-            Luxury condos in the beautiful Bella Sirena & Princesa Resorts
+function PropertyCard({
+  title,
+  image,
+  description,
+}: {
+  title: string;
+  image: string;
+  description: string;
+}) {
+  return (
+    <motion.div
+      className="group relative cursor-pointer overflow-hidden rounded-lg"
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.3 }}
+    >
+      <Image
+        src={image || "/placeholder.svg"}
+        alt={title}
+        width={800}
+        height={600}
+        className="aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent transition-opacity group-hover:opacity-90">
+        <div className="absolute inset-x-0 bottom-0 p-6">
+          <h3 className="mb-2 text-2xl font-medium text-white">{title}</h3>
+          <p className="mb-4 text-sm text-gray-300 opacity-0 transition-opacity group-hover:opacity-100">
+            {description}
           </p>
-
           <Button
-            className="relative z-10 text-lg font-semibold max-sm:w-1/2 xl:mb-24 xl:h-[2em] xl:w-1/2 xl:text-3xl"
-            onClick={() => {
-              const roomSection = document.getElementById("roomSection");
-              if (roomSection) {
-                roomSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+            variant="secondary"
+            size="sm"
+            className="group bg-teal-500 text-white hover:bg-teal-600"
           >
-            Let&apos;s get started!
+            View Details
+            <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
           </Button>
-
-          <Image
-            src="https://i.ibb.co/pvkTx69/penasco.jpg"
-            alt="image"
-            width={500}
-            height={500}
-            className="mb-10 mt-16 size-[300px] overflow-hidden rounded-2xl border-4 border-primary md:size-[30rem] xl:size-[50em]"
-            priority
-          />
-        </div>
-
-        <h1 className="rounded-md p-3 text-2xl font-semibold">Activities</h1>
-
-        <Details />
-
-        {/* About section */}
-        <Image
-          src="https://i.ibb.co/BsxtgDP/Drawline.png"
-          alt="draw line"
-          width={350}
-          height={350}
-          className="size-auto object-cover"
-        />
-
-        <About />
-
-        {/* Testimonials section */}
-        <Testimonials />
-        <InfiniteMovingCards
-          items={[
-            {
-              quote:
-                "The condos location was a short walk to the beach and stocked with everything we needed for our 5 day stay. The grounds at Bella Sirena are beautiful and well maintained. Luis and Cindy responded quickly the couple time I reached out to them. I would definately rent from them again. Thanks again and we had a great time.",
-              name: "Sean",
-              title: "Stayed with kids",
-              star: 5,
-            },
-            {
-              quote:
-                "had a good stay, host was very responsive , staff was awesome.",
-              name: "Jeremy",
-              title: "Stayed with kids",
-              star: 5,
-            },
-            {
-              quote:
-                "Beautiful and so quiet. All staff very nice. Views are Amazing. Thank you so much",
-              name: "Irma",
-              title: "Stayed with kids",
-              star: 5,
-            },
-            {
-              quote:
-                "It was the perfect condo! Awesome amenities and the most comfortable beds after a day spent in the sun. It’s a great space with amazing views of the pool, beach and ocean.",
-              name: "Kayla",
-              title: "Stayed with kids",
-              star: 5,
-            },
-          ]}
-          speed="slow"
-          className="mb-10"
-        />
-
-        {/* Room section */}
-        <div id="roomSection">
-          <Rooms />
         </div>
       </div>
-    </main>
+    </motion.div>
   );
-};
+}
 
-export default Home;
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Hero Section */}
+      <section className="relative h-screen">
+        <Image
+          src="https://images.pexels.com/photos/1045113/pexels-photo-1045113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          alt="Puerto Peñasco Beach"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent">
+          <div className="container mx-auto flex h-full flex-col items-center justify-center px-4 text-center">
+            <motion.h1
+              className="mb-6 text-5xl font-bold md:text-7xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Welcome to Puerto Peñasco
+            </motion.h1>
+            <motion.p
+              className="mb-8 max-w-2xl text-xl md:text-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Luxury condos in the beautiful Bella Sirena & Princesa Resorts
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Button
+                size="lg"
+                className="bg-teal-500 text-white hover:bg-teal-600"
+              >
+                Book Your Stay
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-gray-800 py-20">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            className="mb-12 text-center text-4xl font-bold text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Experience Paradise
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-1 gap-8 md:grid-cols-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, staggerChildren: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <FeatureCard
+              icon={<Palmtree className="size-10" />}
+              title="Beachfront Location"
+              description="Direct access to Sandy Beach, the most popular beach in Puerto Peñasco"
+            />
+            <FeatureCard
+              icon={<Waves className="size-10" />}
+              title="Ocean Views"
+              description="Unobstructed views of the Sea of Cortez from your private balcony"
+            />
+            <FeatureCard
+              icon={<Sun className="size-10" />}
+              title="Resort Amenities"
+              description="Multiple pools, hot tubs, and direct beach access"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <AboutSection />
+
+      {/* Properties Section */}
+      <section className="bg-gray-900 py-20">
+        <div className="container mx-auto px-4">
+          <motion.h2
+            className="mb-12 text-center text-4xl font-bold text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Our Properties
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-1 gap-8 md:grid-cols-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, staggerChildren: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <PropertyCard
+              title="Vista del Mar I"
+              image="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              description="Stunning beachfront condo with unobstructed ocean views and modern amenities."
+            />
+            <PropertyCard
+              title="Vista del Mar II"
+              image="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              description="Spacious two-bedroom unit perfect for families, featuring a fully equipped kitchen."
+            />
+            <PropertyCard
+              title="Princesa"
+              image="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              description="Luxury suite with premium furnishings and breathtaking sunset views."
+            />
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+}
